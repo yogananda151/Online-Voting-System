@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4">Election Results</h2>
+<div class="row">
+    {% for candidate in results %}
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            {% if candidate.photo_path %}
+            <img src="{{ url_for('static', filename='uploads/' + candidate.photo_path) }}" 
+                 class="card-img-top candidate-photo" alt="{{ candidate.candidate_name }}">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ candidate.candidate_name }}</h5>
+                <p class="card-text">
+                    <strong>Party:</strong> {{ candidate.party_name }}<br>
+                    {% if candidate.symbol_path %}
+                    <img src="{{ url_for('static', filename='uploads/' + candidate.symbol_path) }}" 
+                         class="party-symbol" alt="{{ candidate.party_name }} symbol">
+                    {% endif %}
+                </p>
+                <div class="mt-3">
+                    <div class="d-flex justify-content-between">
+                        <span>Votes:</span>
+                        <span>{{ candidate.vote_count }}</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <span>Percentage:</span>
+                        <span>{{ candidate.percentage }}%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div class="card mt-4">
+    <div class="card-body">
+        <h5 class="card-title">Total Votes</h5>
+        <p class="display-4">{{ total_votes }}</p>
+    </div>
+</div>
+{% endblock %}

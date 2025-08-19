@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Add Election</h2>
+<form method="POST">
+    <div class="mb-3">
+        <label for="election_name" class="form-label">Election Name</label>
+        <input type="text" class="form-control" id="election_name" name="election_name" required>
+    </div>
+    <div class="mb-3">
+        <label for="area" class="form-label">Area</label>
+        <input type="text" class="form-control" id="area" name="area" required>
+    </div>
+    <div class="mb-3">
+        <label for="start_time" class="form-label">Start Time</label>
+        <input type="datetime-local" class="form-control" id="start_time" name="start_time" required>
+    </div>
+    <div class="mb-3">
+        <label for="end_time" class="form-label">End Time</label>
+        <input type="datetime-local" class="form-control" id="end_time" name="end_time" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Create Election</button>
+</form>
+
+{% endblock %}

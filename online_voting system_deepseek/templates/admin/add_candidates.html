@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4">Add Candidate</h2>
+<form method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="candidate_name" class="form-label">Candidate Name</label>
+        <input type="text" class="form-control" id="candidate_name" name="candidate_name" required>
+    </div>
+    <div class="mb-3">
+        <label for="party_name" class="form-label">Party Name</label>
+        <input type="text" class="form-control" id="party_name" name="party_name" required>
+    </div>
+    <div class="mb-3">
+        <label for="photo" class="form-label">Candidate Photo</label>
+        <input class="form-control" type="file" id="photo" name="photo" accept="image/*" required>
+    </div>
+    <div class="mb-3">
+        <label for="symbol" class="form-label">Party Symbol</label>
+        <input class="form-control" type="file" id="symbol" name="symbol" accept="image/*" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Election</label>
+        <input type="text" class="form-control" value="{{ election.name }}" readonly>
+        <input type="hidden" name="election_id" value="{{ election_id }}">
+    </div>
+    <button type="submit" class="btn btn-primary">Add Candidate</button>
+</form>
+{% endblock %}

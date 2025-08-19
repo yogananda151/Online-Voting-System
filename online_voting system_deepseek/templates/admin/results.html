@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4">Election Results</h2>
+<form method="POST" action="{{ url_for('publish_results', election_id=election_id) }}">
+    <button type="submit" class="btn btn-success mb-3">Publish Results</button>
+</form>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Candidate</th>
+                <th>Party</th>
+                <th>Votes</th>
+                <th>Percentage</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for candidate in results %}
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        {% if candidate.photo_path %}
+                        <img src="{{ url_for('static', filename='uploads/' + candidate.photo_path) }}" 
+                             alt="{{ candidate.candidate_name }}" width="50" class="me-3">
+                        {% endif %}
+                        <span>{{ candidate.candidate_name }}</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex align-items-center">
+                        {% if candidate.symbol_path %}
+                        <img src="{{ url_for('static', filename='uploads/' + candidate.symbol_path) }}" 
+                             alt="{{ candidate.party_name }}" width="30" class="me-2">
+                        {% endif %}
+                        {{ candidate.party_name }}
+                    </div>
+                </td>
+                <td>{{ candidate.vote_count }}</td>
+                <td>{{ candidate.percentage }}%</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr class="table-dark">
+                <td colspan="2">Total Votes</td>
+                <td colspan="2">{{ total_votes }}</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+{% endblock %}

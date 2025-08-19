@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4">Elections</h2>
+<a href="{{ url_for('add_election') }}" class="btn btn-primary mb-3">Add Election</a>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Area</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for election in elections %}
+            <tr>
+                <td>{{ election.id }}</td>
+                <td>{{ election.name }}</td>
+                <td>{{ election.area }}</td>
+                <td>{{ election.start_time }}</td>
+                <td>{{ election.end_time }}</td>
+                <td>
+                    {% if election.is_active %}
+                        Active
+                    {% else %}
+                        Inactive
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{{ url_for('admin_candidates', election_id=election.id) }}" class="btn btn-sm btn-info">View Candidates</a>
+                    <a href="{{ url_for('add_candidate', election_id=election.id) }}" class="btn btn-sm btn-success">Add Candidate</a>
+                    <a href="{{ url_for('admin_results', election_id=election.id) }}" class="btn btn-sm btn-primary">Results</a>
+                    {% if election.is_active %}
+                    <form method="POST" action="{{ url_for('complete_election', election_id=election.id) }}" style="display:inline;">
+                        <button type="submit" class="btn btn-sm btn-danger">Stop Election</button>
+                    </form>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

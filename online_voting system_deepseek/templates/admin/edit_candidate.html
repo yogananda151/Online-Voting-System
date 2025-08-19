@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4">Edit Candidate</h2>
+<form method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="candidate_name" class="form-label">Candidate Name</label>
+        <input type="text" class="form-control" id="candidate_name" name="candidate_name" 
+               value="{{ candidate.candidate_name }}" required>
+    </div>
+    <div class="mb-3">
+        <label for="party_name" class="form-label">Party Name</label>
+        <input type="text" class="form-control" id="party_name" name="party_name" 
+               value="{{ candidate.party_name }}" required>
+    </div>
+    <div class="mb-3">
+        <label for="photo" class="form-label">Candidate Photo</label>
+        <input class="form-control" type="file" id="photo" name="photo" accept="image/*">
+        {% if candidate.photo_path %}
+            <div class="mt-2">
+                <img src="{{ url_for('static', filename='uploads/' + candidate.photo_path) }}" 
+                     alt="Current Photo" width="100">
+            </div>
+        {% endif %}
+    </div>
+    <div class="mb-3">
+        <label for="symbol" class="form-label">Party Symbol</label>
+        <input class="form-control" type="file" id="symbol" name="symbol" accept="image/*">
+        {% if candidate.symbol_path %}
+            <div class="mt-2">
+                <img src="{{ url_for('static', filename='uploads/' + candidate.symbol_path) }}" 
+                     alt="Current Symbol" width="100">
+            </div>
+        {% endif %}
+    </div>
+    <button type="submit" class="btn btn-primary">Update Candidate</button>
+</form>
+{% endblock %}
