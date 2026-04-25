@@ -1,0 +1,15 @@
+<!-- templates/admin/dashboard.html -->
+{% extends "base.html" %}
+{% block content %}
+<div class="dashboard">
+    <h2>Admin Dashboard</h2>
+    <div class="row mt-4">
+        <div class="col-md-3">
+            <a href="{{ url_for('admin_voters') }}" class="btn btn-primary btn-block">Voters</a>
+        </div>
+        <div class="col-md-3">
+            <a href="{{ url_for('admin_elections') }}" class="btn btn-primary btn-block">Elections</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

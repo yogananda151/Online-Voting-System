@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+    <h2 class="mb-4">Candidates</h2>
+    {% for candidate in candidates %}
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            {% if candidate.photo_path %}
+            <img src="{{ url_for('static', filename='uploads/' + candidate.photo_path) }}" 
+                 class="card-img-top candidate-photo" alt="{{ candidate.candidate_name }}">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ candidate.candidate_name }}</h5>
+                <p class="card-text">
+                    <strong>Party:</strong> {{ candidate.party_name }}<br>
+                    {% if candidate.symbol_path %}
+                    <img src="{{ url_for('static', filename='uploads/' + candidate.symbol_path) }}" 
+                         class="party-symbol" alt="{{ candidate.party_name }} symbol">
+                    {% endif %}
+                </p>
+                <form method="POST" action="{{ url_for('cast_vote', candidate_id=candidate.id) }}">
+                    <input type="hidden" name="election_id" value="{{ election.id }}">
+                    <button type="submit" class="btn btn-primary w-100">Vote</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

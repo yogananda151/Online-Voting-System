@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Voter Dashboard</h5>
+    </div>
+    <div class="card-body">
+        <h5>Welcome, {{ session['voter_name'] }}!</h5>
+        <p class="card-text">
+            {% if voter.has_voted %}
+                You have already cast your vote. Thank you for participating!
+            {% else %}
+                You have not voted yet. Please proceed to the elections page to cast your vote.
+            {% endif %}
+        </p>
+        <a href="{{ url_for('voter_elections') }}" class="btn btn-primary">View Elections</a>
+        {% if voter.has_voted %}
+            <a href="{{ url_for('voter_results_select') }}" class="btn btn-info">View Results</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

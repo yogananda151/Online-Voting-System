@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4">Pending Voters (registered during active elections)</h2>
+
+<form method="POST" action="{{ url_for('assign_pending_voters') }}">
+    <div class="mb-3">
+        <label for="election_id" class="form-label">Add selected to election</label>
+        <select id="election_id" name="election_id" class="form-select" required>
+            <option value="">-- select election --</option>
+            {% for e in elections %}
+            <option value="{{ e.id }}">{{ e.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <table class="table table-striped">
+        <thead><tr><th></th><th>Name</th><th>Voter ID</th><th>Email</th><th>Registered At</th></tr></thead>
+        <tbody>
+            {% for p in pendings %}
+            <tr>
+                <td><input type="checkbox" name="pending_id" value="{{ p.id }}"></td>
+                <td>{{ p.full_name }}</td>
+                <td>{{ p.voter_code }}</td>
+                <td>{{ p.email }}</td>
+                <td>{{ p.created_at }}</td>
+            </tr>
+            {% endfor %}
+            {% if not pendings %}
+            <tr><td colspan="5" class="text-center">No pending voters</td></tr>
+            {% endif %}
+        </tbody>
+    </table>
+
+    <button class="btn btn-primary" type="submit">Add to Election</button>
+    <a href="{{ url_for('admin_export_pending') }}" class="btn btn-outline-secondary ms-2">Export CSV</a>
+</form>
+{% endblock %}

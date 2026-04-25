@@ -1,0 +1,25 @@
+online-voting-system/
+├── app.py
+├── config.py
+├── requirements.txt
+├── static/
+│   ├── css/
+│   │   └── style.css
+│   └── uploads/
+├── templates/
+│   ├── admin/
+│   │   ├── add_candidate.html
+│   │   ├── candidates.html
+│   │   ├── dashboard.html
+│   │   ├── edit_candidate.html
+│   │   ├── login.html
+│   │   ├── results.html
+│   │   └── voters.html
+│   ├── voter/
+│   │   ├── candidates.html
+│   │   ├── dashboard.html
+│   │   ├── login.html
+│   │   ├── register.html
+│   │   └── results.html
+│   └── base.html
+└── voting_system.sql

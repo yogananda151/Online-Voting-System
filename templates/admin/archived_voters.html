@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4">Archived Voters - {{ election.name }}</h2>
+<a href="{{ url_for('admin_elections') }}" class="btn btn-secondary mb-3">Back to Elections</a>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Full Name</th>
+                <th>Voter ID</th>
+                <th>Email</th>
+                <th>Voting Status</th>
+                <th>Registered At</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if voters|length == 0 %}
+            <tr>
+                <td colspan="6" class="text-center">No archived voters found for this election.</td>
+            </tr>
+            {% endif %}
+            {% for voter in voters %}
+            <tr>
+                <td>{{ voter.id }}</td>
+                <td>{{ voter.full_name }}</td>
+                <td>{{ voter.voter_id }}</td>
+                <td>{{ voter.email }}</td>
+                <td>
+                    {% if voter.has_voted %}
+                        <span class="badge bg-success">Voted</span>
+                    {% else %}
+                        <span class="badge bg-warning text-dark">Not Voted</span>
+                    {% endif %}
+                </td>
+                <td>{{ voter.registered_at }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

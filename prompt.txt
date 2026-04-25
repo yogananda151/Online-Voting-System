@@ -1,0 +1,110 @@
+i want to create a online voting website for my project. can you help me to do this because i don't now anything about website ceration
+tools: python(flask), MySQL, any ui/ux etc.
+our aim is to create a secure online voting system, and user friendly webpage.
+1. we we have to login as voter or admin;
+    a.after login as admin, the dashboard have live elections, add election, voters list, finished elections, up coming elections,logout.
+        -> after clicking on the live elections it will show what are the live elections going on. 
+            ->after clickin on the ongoing election it will show how many voters voted and not voted and live results. only admin can see this. and admin can cancle the elections at any time.
+        -> after clicking on the add election it will ask election name, place name , voters list, election starting time & ending time, after that it will ask candidates names, party name, candidate img, party img.
+        -> after clicking on the voters list it will ask to upload voters list through Excel file after uploading it will show the voters list.
+        -> after clicking on the finished elections, admin can see the finished elections.after click on the any completed election it will show the voted and not voted voters and admin can see the results and admin can publish_results if admin wants to publish.
+        -> after clicking on the up coming elections, it will show the what are the elections are up coming and admin can  add can edit the date, candidates, voters before elections starts.
+    b.After login as voter , in the dash board there is live elections and completed elections.
+        -> after clicking on the live elections it will show the what sre are the ive elections going on
+            ->after voter select the election it will show the candidate how are there in that election now voter can vote.
+        -> after clicking on the completed election it will show completed election.
+            ->after clicking any complete_election it will show the results. results will appere after admin can publish the results 
+
+note:
+=> each voter can vote only ones for each election.
+=> while voter login it will scan the voter face to login.
+
+
+
+
+
+We aim to build a secure and user-friendly online voting system using Python (Flask), MySQL, and a simple UI/UX frontend. The system will provide two types of login: Admin and Voter.
+
+1. Login System
+
+Users can log in either as Admin or as Voter.
+
+Voter Login will include facial recognition authentication to ensure security.
+
+2. Admin Dashboard
+
+After login, the Admin dashboard will contain the following features:
+
+Live Elections
+
+Shows the list of ongoing elections.
+
+Clicking on an election displays:
+
+Number of voters who have voted vs. not voted.
+
+Live results (only visible to Admin).
+
+Admin can cancel an election at any time.
+
+Add Election
+
+Admin can create a new election by entering:
+
+Election name, place name, voter list, start time, end time.
+
+Candidate details (candidate name, party name, candidate image, party image).
+
+Voters List
+
+Admin can upload a voter list via an Excel file.
+
+After uploading, the complete voter list will be displayed.
+
+Finished Elections
+
+Shows completed elections.
+
+Clicking on a completed election displays:
+
+List of voters who voted and who did not.
+
+Final results (Admin can choose to publish results).
+
+Upcoming Elections
+
+Shows elections scheduled for the future.
+
+Admin can edit details (date, candidates, voter list) before the election starts.
+
+Logout
+
+3. Voter Dashboard
+
+After login, the Voter dashboard will have the following features:
+
+Live Elections
+
+Shows the list of ongoing elections.
+
+After selecting an election, the voter can view the candidate list and cast their vote.
+
+Each voter can vote only once per election.
+
+Completed Elections
+
+Displays elections that have ended.
+
+Clicking on a completed election shows the results (only if the Admin has published them).
+
+Logout
+
+4. Key Features & Rules
+
+Each voter can cast only one vote per election.
+
+Secure login with facial recognition for voters.
+
+Admin controls election management (create, cancel, publish results).
+
+User-friendly and intuitive UI.

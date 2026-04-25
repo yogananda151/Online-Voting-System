@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Upload Voters for: {{ election.name if election else 'Election' }}</h2>
+<form method="post" enctype="multipart/form-data">
+  <div class="mb-3">
+    <label for="file" class="form-label">Excel file (.xlsx)</label>
+    <input type="file" name="file" id="file" accept=".xlsx,.xls" class="form-control" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Upload</button>
+  <a href="{{ url_for('admin_voters', election_id=election.id) }}" class="btn btn-secondary">Back</a>
+</form>
+{% endblock %}

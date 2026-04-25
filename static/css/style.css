@@ -1,0 +1,278 @@
+/* --- Base Styles --- */
+body {
+    font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+    background: linear-gradient(120deg, #e3f0ff 0%, #f8f9fa 100%);
+    color: #222;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Glassmorphism Card --- */
+.card, .form-container, .dashboard-card, .candidate-card {
+    background: rgba(255,255,255,0.85);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(200,200,255,0.18);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.card:hover, .dashboard-card:hover, .candidate-card:hover {
+    box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+    transform: translateY(-6px) scale(1.02);
+}
+
+/* --- Navbar --- */
+.navbar {
+    background: linear-gradient(90deg, #343a40 60%, #007bff 100%) !important;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+}
+
+.navbar-brand, .nav-link {
+    color: #fff !important;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: color 0.2s;
+    font-size: 20px;
+}
+
+.navbar-brand:hover, .nav-link:hover {
+    color: #ffd700 !important;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+/* --- Footer --- */
+.footer {
+    background: linear-gradient(90deg, #343a40 60%, #007bff 100%);
+    color: #fff;
+    padding: 28px 0;
+    font-size: 18px;
+    box-shadow: 0 -2px 12px rgba(0,0,0,0.08);
+    text-align: center;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    margin-top: 48px;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    background: url('../images/voting_banner.jpg') no-repeat center center/cover, linear-gradient(120deg, #007bff44 0%, #343a4044 100%);
+    color: white;
+    padding: 120px 0 80px 0;
+    text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.7);
+    border-radius: 0 0 32px 32px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+/* --- Candidate Card --- */
+.candidate-card {
+    margin-bottom: 32px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.92);
+}
+
+.candidate-photo {
+    height: 220px;
+    object-fit: cover;
+    border-radius: 18px 18px 0 0;
+    width: 100%;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+}
+
+.party-symbol {
+    height: 48px;
+    width: 48px;
+    object-fit: contain;
+    margin-top: 12px;
+    filter: drop-shadow(0 2px 6px #007bff88);
+}
+
+/* --- Form Section --- */
+.form-section {
+    padding: 64px 0;
+    background: linear-gradient(135deg, #f1f1f1 60%, #e3f0ff 100%);
+}
+
+.form-container {
+    padding: 48px;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+    background: rgba(255,255,255,0.95);
+}
+
+.form-control {
+    border-radius: 10px;
+    font-size: 18px;
+    padding: 14px;
+    border: 1px solid #cfd8dc;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background: rgba(245,248,255,0.7);
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px #e3f0ff;
+    background: #fff;
+}
+
+/* --- Buttons --- */
+.btn-primary, .btn-outline-info, .btn-success, .btn-danger {
+    border-radius: 10px;
+    padding: 13px 32px;
+    font-size: 20px;
+    font-weight: 600;
+    box-shadow: 0 2px 10px rgba(0,123,255,0.10);
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, #007bff 60%, #0056b3 100%);
+    color: #fff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(90deg, #0056b3 60%, #007bff 100%);
+    box-shadow: 0 4px 18px rgba(0,123,255,0.18);
+    transform: scale(1.04);
+}
+
+.btn-outline-info {
+    color: #007bff;
+    border: 2px solid #007bff;
+    background: transparent;
+}
+
+.btn-outline-info:hover {
+    background: #e3f0ff;
+    color: #0056b3;
+    border-color: #0056b3;
+}
+
+.btn-success {
+    background: linear-gradient(90deg, #28a745 60%, #218838 100%);
+    color: #fff;
+    border: none;
+}
+
+.btn-danger {
+    background: linear-gradient(90deg, #dc3545 60%, #c82333 100%);
+    color: #fff;
+    border: none;
+}
+
+/* --- Alerts --- */
+.alert {
+    border-radius: 10px;
+    font-size: 18px;
+    padding: 18px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    background: rgba(255,255,255,0.95);
+}
+
+/* --- Dashboard Card --- */
+.dashboard-card {
+    padding: 36px;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    text-align: center;
+    margin-bottom: 32px;
+    background: rgba(255,255,255,0.92);
+}
+
+.dashboard-card h3 {
+    color: #007bff;
+    font-size: 42px;
+    margin-bottom: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.dashboard-card p {
+    color: #555;
+    font-size: 21px;
+}
+
+/* --- Table --- */
+.table-responsive {
+    margin-top: 36px;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+    font-size: 18px;
+    background: rgba(255,255,255,0.92);
+}
+
+.table thead th {
+    background: linear-gradient(90deg, #343a40 60%, #007bff 100%);
+    color: #fff;
+    font-size: 19px;
+    font-weight: 700;
+    border: none;
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, #28a745 60%, #218838 100%);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(40,167,69,0.10);
+}
+
+/* --- List Group --- */
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    background: rgba(248,249,250,0.95);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    border: none;
+    transition: background 0.2s;
+}
+
+.list-group-item span {
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Add subtle hover effect for clickable items */
+.list-group-item:hover {
+    background: #e3f0ff;
+    cursor: pointer;
+}
+
+/* --- Custom Headings --- */
+h1, h2, h3, h4, h5 {
+    font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* --- Custom Scrollbar --- */
+::-webkit-scrollbar {
+    width: 8px;
+    background: #e3f0ff;
+}
+::-webkit-scrollbar-thumb {
+    background: #007bff88;
+    border-radius: 8px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .form-container, .dashboard-card, .candidate-card {
+        padding: 18px;
+    }
+    .hero-section {
+        padding: 60px 0 40px 0;
+    }
+    .footer {
+        padding: 18px 0;
+        font-size: 16px;
+    }
+}

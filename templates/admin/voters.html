@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4">Registered Voters</h2>
+{% if election_id %}
+    <div class="alert alert-info">
+        Showing voters for the current active election
+        <a href="{{ url_for('upload_voters', election_id=election_id) }}" class="btn btn-primary float-end">Upload Voters (Excel)</a>
+    </div>
+{% else %}
+    <div class="alert alert-warning">
+        No active election. Create an election first to manage voters.
+    </div>
+{% endif %}
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Full Name</th>
+                <th>Voter ID</th>
+                <th>Email</th>
+                <th>Has Voted</th>
+                <th>Add to election</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for voter in voters %}
+            <tr>
+                <td>{{ voter.id }}</td>
+                <td>{{ voter.full_name }}</td>
+                <td>{{ voter.voter_id }}</td>
+                <td>{{ voter.email }}</td>
+                <td>{{ 'Yes' if voter.has_voted else 'No' }}</td>
+                <td>
+                    {% if elections %}
+                    <form method="post" action="{{ url_for('add_voter_to_election') }}" class="d-flex">
+                        <input type="hidden" name="voter_id" value="{{ voter.id }}">
+                        <select name="election_id" class="form-control form-control-sm me-2" required>
+                            <option value="">Select election...</option>
+                            {% for e in elections %}
+                                <option value="{{ e.id }}">{{ e.name }}</option>
+                            {% endfor %}
+                        </select>
+                        <button type="submit" class="btn btn-sm btn-primary">Add</button>
+                    </form>
+                    {% else %}
+                        <small class="text-muted">No active elections</small>
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{{ url_for('delete_voter', id=voter.id) }}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
